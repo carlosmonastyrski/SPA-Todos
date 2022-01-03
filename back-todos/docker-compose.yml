@@ -1,0 +1,17 @@
+version: '2.4'
+
+services:
+
+  mysql:
+    image: mysql:5.7.25
+    container_name: mysql
+    volumes:
+      - ./sql-data/db:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    hostname: VIP
+    environment:
+      MYSQL_DATABASE: 'ensolvers_db'
+      MYSQL_USER: 'carlos'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'root'

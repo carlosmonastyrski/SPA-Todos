@@ -1,0 +1,15 @@
+{
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "carlos",
+    "password": "password",
+    "database": "ensolvers_db",
+    "entities": ["src/**/*.entity.ts"],
+    "sinchronize":false,
+    "migrationsTableName": "migrations",
+    "migrations": ["src/database/migrations/*{.js,.ts}"],
+    "cli": {
+        "migrationsDir": "src/database/migrations"
+    }
+}
