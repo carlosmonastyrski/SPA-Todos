@@ -1,6 +1,7 @@
 import {React, useState, useEffect} from 'react'
 import TodoItem from './TodoItem'
 import axios from 'axios';
+import './TodoList.css'
 
 function TodoList({idFolder}) {
 
@@ -21,7 +22,7 @@ function TodoList({idFolder}) {
         <>
             <ul>
                 {todos.map(todo => 
-                    <TodoItem key={todo.id} todo={{id: todo.id,
+                    <TodoItem className="folder-item-content" key={todo.id} todo={{id: todo.id,
                                                 description : todo.description,
                                                 isFinished:todo.isFinished}} folderId={idFolder}/>
                 )}

@@ -1,0 +1,14 @@
+.input-container{
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.new-task-button{
+    margin-left: 100px;
+    height: 100%;
+}

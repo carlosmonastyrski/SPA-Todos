@@ -3,6 +3,7 @@ import TodoList from '../TodoList'
 import { TextField } from '@mui/material'
 import { Button } from '@mui/material'
 import axios from 'axios'
+import './Folder.css'
 
 function Folder(props) {
     const [description, setDescription] = useState("");
@@ -24,12 +25,14 @@ function Folder(props) {
 
     return (
         <>
-            <h1>Folders {'>'} Work</h1>
+            <h1><a href="/">Folders</a> {'>'} Work</h1>
             <TodoList idFolder={{idFolder:new URL(window.location).href.split("/").at(-1)}} />
-            <div>
+            <div className="input-container">
                 <TextField id="outlined-basic" placeholder="New Task" variant="outlined" 
                 onChange={(e) => setDescription(e.target.value)}/>
-                <Button onClick={handleAddTask} variant="outlined">Add</Button>
+                <Button sx={{
+                    marginLeft: 4
+                }} onClick={handleAddTask} variant="outlined">Add</Button>
             </div>
         </>
     )

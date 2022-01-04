@@ -1,0 +1,21 @@
+h1{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.add-container{
+    width: 100px;
+}
+
+.input-folder-container{
+    width: 500px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    justify-items: center;
+}
+
+.input-text{
+    width: 400px;   
+}

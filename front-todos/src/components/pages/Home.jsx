@@ -3,7 +3,7 @@ import FolderList from '../FolderList'
 import { TextField } from '@mui/material'
 import { Button } from '@mui/material'
 import axios from 'axios'
-
+import './Home.css'
 
 function Home() {
     const [description, setDescription] = useState("");
@@ -24,10 +24,22 @@ function Home() {
         <>
             <h1>Folders</h1>
             <FolderList/>
-            <div>
-                <TextField id="outlined-basic" placeholder="New Folder" variant="outlined"
-                onChange={(e) => setDescription(e.target.value)} />
-                <Button variant="outlined" onClick={handleAddFolder}>Add</Button>
+            <div className="input-folder-container">
+                <div className="input-text">
+                    <TextField fullWidth  id="fullWidth"
+                    sx={{
+                        fontSize: '1rem',
+                        width: 400,
+                        height: 60
+                    }} placeholder="New Folder" onChange={(e) => setDescription(e.target.value)} />
+                </div>
+                <div className='add-container'>
+                <Button sx={{
+                    marginLeft: 2,
+                    fontSize: '1rem',
+                    height: 60
+                }} variant="outlined" onClick={handleAddFolder}>Add</Button>
+            </div>
             </div>
         </>
     )
