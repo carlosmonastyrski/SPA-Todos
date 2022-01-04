@@ -112,7 +112,7 @@ export class TasksController {
         try{
             const folder = await this.tasksService.deleteFolder(idFolder);
             return await res.status(HttpStatus.OK).json({
-                folder
+                message: "Success, the folder has been removed"
             })
         }
         catch (error){
