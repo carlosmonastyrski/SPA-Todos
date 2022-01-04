@@ -11,6 +11,7 @@ function EditTask(props) {
 
     const handleSave = () => {
         const idTask = new URL(window.location).href.split("/").at(-2)
+        const token = window.localStorage.getItem('Auth');
         if (description !== ""){
             axios.put('http://localhost:4000/tasks/update-task?idTodo=' + idTask, {description})
             .then(res => {

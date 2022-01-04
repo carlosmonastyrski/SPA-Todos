@@ -8,7 +8,7 @@ function TodoList({idFolder}) {
     const [todos, setTodos] = useState([]);
 
     useEffect(()=>{
-        console.log(idFolder)
+        const token = window.localStorage.getItem('Auth');
         const url = "http://localhost:4000/tasks/tasks?idFolder=" + parseInt(idFolder.idFolder)
         console.log(url)
         axios.get(url)

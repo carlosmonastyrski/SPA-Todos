@@ -4,9 +4,15 @@ import { TextField } from '@mui/material'
 import { Button } from '@mui/material'
 import axios from 'axios'
 import './Folder.css'
+import { useNavigate } from 'react-router-dom';
 
 function Folder(props) {
     const [description, setDescription] = useState("");
+    const navigate = useNavigate();
+
+    const goHome = () => {
+        navigate('/');
+    }
 
     const handleAddTask = () => {
         const idTask = new URL(window.location).href.split("/").at(-1)
@@ -25,7 +31,7 @@ function Folder(props) {
 
     return (
         <>
-            <h1><a href="/">Folders</a> {'>'} Work</h1>
+            <h1><a href='' disabled="disabled" onClick={goHome}>Folders</a> {'>'} Work</h1>
             <TodoList idFolder={{idFolder:new URL(window.location).href.split("/").at(-1)}} />
             <div className="input-container">
                 <TextField id="outlined-basic" placeholder="New Task" variant="outlined" 

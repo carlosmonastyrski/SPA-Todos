@@ -1,0 +1,32 @@
+.boton_login {
+    margin-top: 5%;
+    display: flex;
+    width: 100%;
+    text-align: center;
+}
+
+.titleLogIn{
+    color:rgb(77, 74, 74);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sign-up-button{
+  justify-content: flex-end;
+  display: flex;
+}
+
+.Login{
+  justify-content: center;
+  display: block;
+}
+
+@media all and (min-width: 480px) {
+    .Login {
+      padding: 60px 0;
+    }
+  
+    .Login form {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+  }

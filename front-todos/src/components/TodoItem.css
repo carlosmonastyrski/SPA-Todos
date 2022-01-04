@@ -15,6 +15,7 @@
     display: flex;
     align-self: flex-start;
     justify-self: flex-start;
+    width: 200px;
 }
 
 .container-todo{
