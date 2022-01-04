@@ -1,4 +1,5 @@
-import { Controller, Get, Res, HttpStatus, Query, Post, Body, Put, Delete, HttpException} from '@nestjs/common';
+import { Controller, Get, Res, HttpStatus, Query, Post, Body, Put, Delete, HttpException, UseGuards} from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { TodoDto } from './dto/todo.dto';
 import { FolderDto } from './dto/todoFolder.dto';
 import { TasksService } from './tasks.service';
@@ -7,7 +8,7 @@ import { TasksService } from './tasks.service';
 export class TasksController {
     constructor(private tasksService: TasksService){}
 
-
+    @UseGuards(AuthGuard('jwt'))
     @Get("/")
     async getFolders(@Res() res){
         const folders = await this.tasksService.findAllFolders();
@@ -16,6 +17,7 @@ export class TasksController {
         })
     }
 
+    @UseGuards(AuthGuard('jwt'))
     @Get("/folder")
     async getFolderById(@Res() res, @Query('idFolder') idFolder){
         const folder = await this.tasksService.findFolderById(idFolder);
@@ -24,6 +26,7 @@ export class TasksController {
         })
     }
 
+    @UseGuards(AuthGuard('jwt'))
     @Get("/tasks")
     async getTasksByFolderId(@Res() res, @Query('idFolder') idFolder){
         try{
@@ -40,6 +43,7 @@ export class TasksController {
         }
     }
 
+    @UseGuards(AuthGuard('jwt'))
     @Post("/create-task")
     async createTask(@Res() res, @Body() todoDto: TodoDto){
         try{
@@ -57,6 +61,7 @@ export class TasksController {
         }
     }
 
+    @UseGuards(AuthGuard('jwt'))
     @Post("/create-folder")
     async createFolder(@Res() res, @Body() folderDto: FolderDto){
         try{
@@ -74,6 +79,7 @@ export class TasksController {
         }
     }
 
+    @UseGuards(AuthGuard('jwt'))
     @Put("/update-task")
     async updateTask(@Res() res, @Body() todoDto: TodoDto, @Query('idTodo') idTodo: number){
         try{
@@ -91,6 +97,7 @@ export class TasksController {
         }
     }
 
+    @UseGuards(AuthGuard('jwt'))
     @Delete("/delete-task")
     async deleteTask(@Res() res, @Query('idTodo') idTodo: number){
         try{
@@ -107,6 +114,7 @@ export class TasksController {
         }
     }
 
+    @UseGuards(AuthGuard('jwt'))
     @Delete("/delete-folder")
     async deleteFolder(@Res() res, @Query('idFolder') idFolder: number){
         try{
