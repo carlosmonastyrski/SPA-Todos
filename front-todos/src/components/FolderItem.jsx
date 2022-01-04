@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from '@mui/material'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './FolderItem.css'
 
 function FolderItem({folder}) {
 
@@ -28,10 +29,22 @@ function FolderItem({folder}) {
     }
 
     return (
-        <li>
-            {description}
-            <Button variant="text" onClick={() =>handleViewItems()}>View items</Button>
-            <Button variant="text" onClick={() => handleRemove()}>Remove</Button>
+        <li className='folder-item'>
+            <div className='container-folders'>
+                <div className="content-container">
+                    <p className="description-folder">- {description}</p>
+                </div>
+            </div>
+            <div className="button-container">
+                <Button sx={{
+                    marginLeft: 2,
+                    fontSize: '1rem' 
+                }} variant="text" onClick={() =>handleViewItems()}>View items</Button>
+                <Button sx={{
+                    marginLeft: 2,
+                    fontSize: '1rem' 
+                }} variant="text" onClick={() => handleRemove()}>Remove</Button>
+            </div>
         </li>
     )
 }

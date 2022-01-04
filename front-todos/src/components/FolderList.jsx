@@ -1,6 +1,7 @@
 import {React, useState, useEffect} from 'react'
 import FolderItem from  './FolderItem'
 import axios from 'axios';
+import './FolderList.css'
 
 function FolderList() {
 
@@ -20,7 +21,7 @@ function FolderList() {
         <>
         <ul>
             {folders.map(folder => 
-                <FolderItem key={folder.id} folder={folder}/>
+                <FolderItem className="todo-item-content" key={folder.id} folder={folder}/>
             )}
         </ul>
     </>

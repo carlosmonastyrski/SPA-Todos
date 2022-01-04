@@ -3,8 +3,9 @@ import { TextField } from '@mui/material'
 import { Button } from '@mui/material'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import './EditTask.css'
 
-function EditTask() {
+function EditTask(props) {
     const [description, setDescription] = useState("");
     const navigate = useNavigate();
 
@@ -26,6 +27,7 @@ function EditTask() {
     }
 
     const handleCancel = () => {
+        console.log(props)
         const idFolder = new URL(window.location).href.split("/").at(-3)
         const url = '/folder/' + idFolder;
         navigate(url);
@@ -34,13 +36,15 @@ function EditTask() {
     return (
         <>
             <h1>Editing Task "{new URL(window.location).href.split("/").at(-1).replaceAll("_", " ")}"</h1>
-            <div>
-                <TextField id="outlined-basic" placeholder="New Description" variant="outlined" 
+            <div className="input-container">
+                <TextField className="input-description" id="outlined-basic" placeholder="New Description" variant="outlined" 
                 onChange={(e) => setDescription(e.target.value)}/>
             </div>
-            <div>
-                <Button onClick={handleSave} variant="contained">Save</Button>
-                <Button onClick={handleCancel} variant="contained">Cancel</Button>
+            <div className='buttons-container'>
+                <Button onClick={handleSave} color="success" variant="contained">Save</Button>
+                <Button sx={{
+                    marginLeft: 4
+                }} onClick={handleCancel} color="error" variant="contained">Cancel</Button>
             </div>
         </>
     )

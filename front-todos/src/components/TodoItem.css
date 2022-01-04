@@ -1,0 +1,38 @@
+.todo-item{
+    width: max-content;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0px;
+    margin: 0px;
+}
+
+.edit-button{
+    justify-self: flex-end;
+}
+
+.description-todo{
+    display: flex;
+    align-self: flex-start;
+    justify-self: flex-start;
+}
+
+.container-todo{
+    display: flex;
+    justify-content: flex-start;
+    width: 300px;
+}
+
+.button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 70px;
+}
+
+.content-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 230px;
+}

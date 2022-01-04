@@ -1,0 +1,35 @@
+.folder-item{
+    width: max-content;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0px;
+    margin: 0px;
+}
+
+.description-folder{
+    display: flex;
+    align-self: flex-start;
+    justify-self: flex-start;
+    font-size: 1rem;
+}
+
+.container-folders{
+    display: flex;
+    justify-content: flex-start;
+    width: 200px;
+}
+
+.button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 300px;
+}
+
+.content-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 300px;
+}
