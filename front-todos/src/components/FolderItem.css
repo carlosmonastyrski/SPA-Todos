@@ -1,7 +1,7 @@
 .folder-item{
     width: max-content;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-around;
     flex-direction: row;
     padding: 0px;
     margin: 0px;
@@ -22,8 +22,8 @@
 
 .button-container{
     display: flex;
-    flex-direction: row;
     justify-content: flex-end;
+    justify-items: flex-end;
     width: 300px;
 }
 

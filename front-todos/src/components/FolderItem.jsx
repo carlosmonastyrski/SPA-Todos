@@ -15,7 +15,7 @@ function FolderItem({folder}) {
     }
 
     function handleRemove() {
-        console.log(id)
+        const token = window.localStorage.getItem('Auth');
         const url = "http://localhost:4000/tasks/delete-folder?idFolder=" + id
         axios.delete(url)
         .then(res => {

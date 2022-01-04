@@ -25,6 +25,7 @@ function TodoItem({todo, folderId}) {
 
     useEffect(() => {
         if (!initialRender.current){
+            const token = window.localStorage.getItem('Auth');
             axios.put('http://localhost:4000/tasks/update-task?idTodo=' + id, {isFinished: isCompleted})
             .then(res => {
                 if (res.status == 200){
