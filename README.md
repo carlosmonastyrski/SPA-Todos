@@ -18,9 +18,6 @@ Docker :  20.10.11
 React : 17.0.2
 ```
 ```
-MUI  :  5.2.7
-```
-```
 In both projects you can find a file named package.json where you can see the other dependencies with their exact version like axios/typeorm/etc
 ```
 
