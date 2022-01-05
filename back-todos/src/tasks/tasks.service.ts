@@ -5,6 +5,7 @@ import { DeleteResult, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FolderDto } from './dto/todoFolder.dto';
 import { TodoDto } from './dto/todo.dto';
+import { throws } from 'assert';
 
 @Injectable()
 export class TasksService {
@@ -52,7 +53,10 @@ export class TasksService {
         return await this.todosRepo.delete(todoId);
     }
 
-    async deleteFolder(folderId: number): Promise<DeleteResult>{
+    async deleteFolder(folderId: number){
+        const todos = await this.todosRepo.find()
+        return todos
+        todos.forEach(todo => this.todosRepo.delete(todo.id))
         return await this.foldersRepo.delete(folderId);
     }
     

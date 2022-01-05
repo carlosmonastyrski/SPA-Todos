@@ -19,3 +19,12 @@ h1{
 .input-text{
     width: 400px;   
 }
+
+.sesion-buttons{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login-button{
+    margin-right:15px;
+}

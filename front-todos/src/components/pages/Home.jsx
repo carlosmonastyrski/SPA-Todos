@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function Home() {
     const [description, setDescription] = useState("");
-    
+    const [isAuth, stIsAuth] = useState(false) ;
 
     const handleAddFolder = () => {
         axios.post('http://localhost:4000/tasks/create-folder')
@@ -33,11 +33,17 @@ function Home() {
                 autoclose: 5000
             })
         }
+        else{
+            stIsAuth(true);
+        }
     },[])
 
     return (
         <>
-            <LogOut/>
+            <div className="sesion-buttons">
+                {isAuth ? null : <a className='login-button' href="/login">Sign In</a>}
+                {isAuth ? <LogOut/> : null}
+            </div>
             <h1>Folders</h1>
             <FolderList/>
             <div className="input-folder-container">

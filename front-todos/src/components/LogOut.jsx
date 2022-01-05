@@ -13,7 +13,7 @@ function LogOut() {
 
     return (
         <div className='log-out-container'>
-            <button onClick={handleLogOut}>Log Out</button>
+            <a href=""  disabled="disabled" onClick={handleLogOut}>Log Out</a>
         </div>
     )
 }
