@@ -114,20 +114,22 @@ export class TasksController {
         }
     }
 
-    @UseGuards(AuthGuard('jwt'))
     @Delete("/delete-folder")
     async deleteFolder(@Res() res, @Query('idFolder') idFolder: number){
         try{
-            const folder = await this.tasksService.deleteFolder(idFolder);
+            const todos = await this.tasksService.findAllTodosByFolder(idFolder);
+            await todos.forEach(todo => this.tasksService.deleteTodo(todo.id));
+            await this.tasksService.deleteFolder(idFolder);
             return await res.status(HttpStatus.OK).json({
-                message: "Success, the folder has been removed"
-            })
+                res: "Ok"
+        })
         }
         catch (error){
             return await res.status(HttpStatus.BAD_REQUEST).json({
                 error: "Error",
-                message: "An error occured while saving"
+                message: "An error occured while deleting the folder"
             })
         }
     }
+
 }

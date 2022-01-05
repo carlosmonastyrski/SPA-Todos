@@ -11,6 +11,7 @@ services:
       - "3306:3306"
     hostname: VIP
     environment:
+      ADMINER_DEFAULT_SERVER: mysql
       MYSQL_DATABASE: 'ensolvers_db'
       MYSQL_USER: 'carlos'
       MYSQL_PASSWORD: 'password'
