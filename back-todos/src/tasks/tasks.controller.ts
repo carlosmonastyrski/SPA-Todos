@@ -48,7 +48,6 @@ export class TasksController {
     async createTask(@Res() res, @Body() todoDto: TodoDto){
         try{
             const todo = await this.tasksService.createTask(todoDto);
-            console.log(todo)
             return await res.status(HttpStatus.OK).json({
                 todo
             })
@@ -66,7 +65,6 @@ export class TasksController {
     async createFolder(@Res() res, @Body() folderDto: FolderDto){
         try{
             const folder = await this.tasksService.createFolder(folderDto);
-            console.log(folder)
             return await res.status(HttpStatus.OK).json({
                 folder
             })
@@ -84,7 +82,6 @@ export class TasksController {
     async updateTask(@Res() res, @Body() todoDto: TodoDto, @Query('idTodo') idTodo: number){
         try{
             const todo = await this.tasksService.updateTodo(todoDto,idTodo);
-            console.log(todo)
             return await res.status(HttpStatus.OK).json({
                 todo
             })
