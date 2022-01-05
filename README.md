@@ -13,6 +13,7 @@ MySql :  5.7.25
 ```
 ```
 Docker :  20.10.11
+Docker-Compose : 2.4
 ```
 ```
 React : 17.0.2
