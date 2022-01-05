@@ -13,7 +13,7 @@ function Home() {
     const [isAuth, stIsAuth] = useState(false) ;
 
     const handleAddFolder = () => {
-        axios.post('http://localhost:4000/tasks/create-folder')
+        axios.post('http://localhost:4000/tasks/create-folder', {description})
         .then(res => {
             if (res.status == 200){
                 console.log("Success")

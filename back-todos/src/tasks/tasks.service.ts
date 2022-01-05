@@ -54,9 +54,6 @@ export class TasksService {
     }
 
     async deleteFolder(folderId: number){
-        const todos = await this.todosRepo.find()
-        return todos
-        todos.forEach(todo => this.todosRepo.delete(todo.id))
         return await this.foldersRepo.delete(folderId);
     }
     
