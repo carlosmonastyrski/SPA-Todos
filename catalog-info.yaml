@@ -4,7 +4,9 @@ metadata:
   name: SPA-Todos
   annotations:
     github.com/project-slug: carlosmonastyrski/SPA-Todos
-    infisical/projectId: 334191f2-9778-4561-9e2e-47ebc3b05f4a
+    infisical/projectId: "6d8e7f94-c0cf-4678-a061-901cb6d392d7"
+    infisical/environment: "staging"
+    infisical/secretPath: "+/folder/nested"
 spec:
   type: other
   lifecycle: unknown
