@@ -1,0 +1,16 @@
+name: Test Infisical AWS Auth
+on: workflow_dispatch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Infisical/secrets-action@feat/addAwsAuth
+        with:
+          method: "aws-iam"
+          identity-id: "287d0c33-814e-4408-af69-dfbd40892858"
+          domain: "https://3768-190-31-36-142.ngrok-free.app"
+          env-slug: "dev"
+          project-slug: "access-2-ha-b"
+      - name: Test secrets
+        run: env | grep -v AWS_ | grep -v GITHUB_
